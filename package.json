@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "npx concurrently \"npx nodemon server/index.js\" \"cd client && npm run dev\"",
+    "dev:client": "cd client && npm run dev",
     "build": "cd client && npm run build && cd .. && npm run build:copy",
     "build:copy": "node -e \"const fs=require('fs'); fs.rmSync('server/public',{recursive:true,force:true}); fs.mkdirSync('server/public',{recursive:true}); fs.cpSync('client/dist','server/public',{recursive:true});\"",
     "test": "vitest run",

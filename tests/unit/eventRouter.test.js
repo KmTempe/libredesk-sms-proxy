@@ -82,13 +82,27 @@ describe('eventRouter', () => {
     expect(call.text).toContain('100');
   });
 
-  it('should send SMS for closed status (waiting template)', async () => {
+  it('should send SMS for waiting-on-3rd-party tag', async () => {
     const { event, payload } = makePayload({
-      payload: { new_status: 'Closed' },
-      conversation: { status: 'Closed' }
+      conversation: { tags: ['waiting-on-3rd-party'] }
     });
     await handleLibredeskWebhook(event, { payload });
+    expect(mockSendSMS).toHaveBeenCalledOnce();
+  });
 
+  it('should send SMS for waiting-on-third-party (spelled out) tag', async () => {
+    const { event, payload } = makePayload({
+      conversation: { tags: ['waiting on third party'] } // test normalization
+    });
+    await handleLibredeskWebhook(event, { payload });
+    expect(mockSendSMS).toHaveBeenCalledOnce();
+  });
+
+  it('should send SMS for conversation.updated if tag is present', async () => {
+    const { payload } = makePayload({
+      conversation: { tags: ['waiting-on-3rd-party'] }
+    });
+    await handleLibredeskWebhook('conversation.updated', { payload });
     expect(mockSendSMS).toHaveBeenCalledOnce();
   });
 

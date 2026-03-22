@@ -33,16 +33,18 @@ A full-stack middleware/proxy solution to connect [LibreDesk](https://libredesk.
    npm run build
    ```
 
-### 3. Deployment (PM2)
-You can start the server using PM2 to keep it alive:
+### 3. Deployment
 ```bash
-pm2 start ecosystem.config.js --name sms-proxy
-pm2 save
-pm2 startup
+npm start
 ```
+runs on port 3400 the server returns 404 on browsers but works only if it get requests from libredesk and your domain
 
-The admin dashboard will now be reachable at `http://YOUR_SERVER_IP:3400/`.
+```bash
+npm run dev:client
+```
+runs on port 5173 the client
 
+The admin dashboard will now be reachable at `http://YOUR_SERVER_IP:5173/`
 ---
 
 ## ⚙️ Configuration Guide
@@ -67,3 +69,6 @@ If you run SMSGate in **Cloud Mode** (https://api.sms-gate.app):
 
 ## Troubleshooting
 All outbound SMS events, including skipped reasons and connectivity errors, are logged under the **Logs** tab in the admin dashboard.
+
+WARNING: ⚠ ⚠ ⚠ 
+this repo is vibe coded to hell DO NOT use it on professional enviroment without hardening it first i create it 6 hours only because i was bored and i though it would be cool to have sms notifications for my libredesk tickets
