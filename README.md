@@ -2,6 +2,12 @@
 
 A full-stack middleware/proxy solution to connect [LibreDesk](https://libredesk.org/) webhook events to contacts via the [SMSGate](https://sms-gate.app/) Android app.
 
+### UI/UX:
+
+<img src="demo_photos/dashboard.png" width="400" />
+<img src="demo_photos/templates.png" width="400" />
+
+
 ## Features
 - **Auto-SMS on Ticket Resolution**: Sends a template SMS when a LibreDesk conversation status is changed to `Resolved`.
 - **Waiting on 3rd Party Notification**: Sends a template SMS when the tag `waiting-on-third-party` is added to a conversation.
