@@ -66,6 +66,7 @@ async function handleLibredeskWebhook(event, body) {
   let phone = conversation.contact?.phone_number;
   const ref = conversation.reference_number;
   const uuid = payloadData.conversation_uuid;
+  const tags = Array.isArray(conversation.tags) ? conversation.tags : [];
 
   if (phone) {
     phone = String(phone).trim();
@@ -105,13 +106,19 @@ async function handleLibredeskWebhook(event, body) {
     smsBody = renderTemplate(template, { ref, message: messageText });
   }
 
-  // Closed status → use the waiting/3rd-party template
-  if (event === 'conversation.status_changed' && newStatus === 'closed') {
+  // Rule 3: Tags updated OR Status changed → check for waiting-on-third-party tag
+  const hasWaitingTag = tags.some(t => {
+    const n = normalizeTag(t);
+    return n === 'waiting-on-3rd-party' || n === 'waiting-on-third-party';
+  });
+  
+  const isTagEvent = event === 'conversation.tags_changed' || event === 'conversation.tags_updated' || event === 'conversation.updated';
+
+  if ((event === 'conversation.status_changed' || isTagEvent) && hasWaitingTag) {
     triggerType = 'waiting';
     const template = getSetting('template_waiting') || 'Reminder: Issue #{ref} is waiting on a 3rd party.';
     smsBody = renderTemplate(template, { ref });
   }
-
 
   if (!triggerType) {
     // Event not relevant — no logging needed to avoid noise.
