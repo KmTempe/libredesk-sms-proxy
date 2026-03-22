@@ -6,7 +6,7 @@ A full-stack middleware/proxy solution to connect [LibreDesk](https://libredesk.
 
 | Dashboard Overview | SMS Template Editor |
 |:---:|:---:|
-| <img src="demo_photos/dashboard.png" width="350" /> | <img src="demo_photos/templates.png" width="350" /> |
+| <img src="demo_photos/dashboard.png" width="500" /> | <img src="demo_photos/templates.png" width="500" /> |
 
 
 
