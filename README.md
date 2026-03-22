@@ -45,7 +45,7 @@ npm run dev:client
 runs on port 5173 the client
 
 The admin dashboard will now be reachable at `http://YOUR_SERVER_IP:5173/`
----
+
 
 ## ⚙️ Configuration Guide
 
