@@ -71,4 +71,4 @@ If you run SMSGate in **Cloud Mode** (https://api.sms-gate.app):
 All outbound SMS events, including skipped reasons and connectivity errors, are logged under the **Logs** tab in the admin dashboard.
 
 WARNING: ⚠ ⚠ ⚠ 
-this repo is vibe coded to hell DO NOT use it on professional enviroment without hardening it first i create it 6 hours only because i was bored and i though it would be cool to have sms notifications for my libredesk tickets
+this repo is vibe coded to hell DO NOT use it on professional enviroment without hardening it first i create it in 6 hours only because i was bored and i though it would be cool to have sms notifications for my libredesk tickets
