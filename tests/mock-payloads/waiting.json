@@ -1,0 +1,19 @@
+{
+  "event": "conversation.updated",
+  "timestamp": "2025-06-15T11:00:00Z",
+  "payload": {
+    "conversation_uuid": "550e8400-e29b-41d4-a716-446655440002",
+    "conversation": {
+      "reference_number": "101",
+      "status": "Open",
+      "last_message": "Can you provide more details?",
+      "tags": ["waiting-on-third-party", "urgent"],
+      "contact": {
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "phone_number": "+15551234567",
+        "phone_number_country_code": "US"
+      }
+    }
+  }
+}

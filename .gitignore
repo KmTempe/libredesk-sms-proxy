@@ -1,0 +1,28 @@
+# ── Secrets & environment ──────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Database files (may contain real customer data) ────────────────────────────
+data/*.db
+data/*.db-shm
+data/*.db-wal
+data/*.log
+
+# Keep the data directory tracked but empty
+!data/.gitkeep
+
+# ── Node ───────────────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Build output ───────────────────────────────────────────────────────────────
+client/dist/
+server/public/
+
+# ── OS artifacts ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+

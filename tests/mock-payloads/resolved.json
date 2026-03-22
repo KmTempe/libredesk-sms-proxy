@@ -1,0 +1,21 @@
+{
+  "event": "conversation.status_changed",
+  "timestamp": "2025-06-15T10:35:00Z",
+  "payload": {
+    "conversation_uuid": "550e8400-e29b-41d4-a716-446655440001",
+    "previous_status": "Open",
+    "new_status": "Resolved",
+    "conversation": {
+      "reference_number": "100",
+      "status": "Resolved",
+      "last_message": "Your issue has been resolved.",
+      "tags": [],
+      "contact": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "phone_number": "+306900000001",
+        "phone_number_country_code": "GR"
+      }
+    }
+  }
+}
